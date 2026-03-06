@@ -88,12 +88,14 @@ export default function ExploreScreen() {
       />
 
       <FlatList
-        data={filteredEvents}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <EventCard event={item} />}
-        contentContainerStyle={{ padding: 20 }}
-        keyboardShouldPersistTaps="handled"
-      />
+  data={filteredEvents}
+  keyExtractor={(item) => item.id}
+  renderItem={({ item }) => <EventCard event={item} />}
+  contentContainerStyle={{ padding: 20 }}
+  keyboardShouldPersistTaps="handled"
+  refreshing={loading}
+  onRefresh={loadEvents}
+/>
     </View>
   );
 }
