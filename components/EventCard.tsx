@@ -1,7 +1,8 @@
 import { router } from 'expo-router';
+import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-export default function EventCard({ event }: any) {
+function EventCard({ event }: any) {
   return (
     <Pressable
       onPress={() =>
@@ -21,6 +22,8 @@ export default function EventCard({ event }: any) {
     </Pressable>
   );
 }
+
+export default React.memo(EventCard);
 
 const styles = StyleSheet.create({
   card: {
