@@ -1,26 +1,33 @@
 # NightLifeApp (Festival / Party / Concert Organizer)
 
-A React Native (Expo) mobile app that lists nightlife events (concerts, parties, festivals) and lets users view event details and save events to Favorites.
+A React Native (Expo) mobile app that lists nightlife events such as concerts, parties, and festivals.  
+Users can browse events, search for them, view event details, and save their favorite events.
 
-## Features (current)
+## Features
 - Event list screen (FlatList)
-- Event detail screen (params passed with Expo Router)
-- Add / Remove Favorites (Context API state)
-- Favorites tab shows saved events
+- Event detail screen (Expo Router parameters)
+- Search events
+- Add / Remove Favorites
+- Favorites saved locally with AsyncStorage
+- Favorites tab showing saved events
 
 ## Tech Stack
 - React Native
 - Expo
 - Expo Router (tabs + stack navigation)
-- TypeScript / JavaScript
-- Context API (Favorites state)
+- JavaScript / TypeScript
+- Context API (global state)
+- AsyncStorage (persistent local storage)
 
 ## Screens
 - Home (event list)
+- Explore (search events)
 - Event Detail
 - Favorites
 
 ## Project Setup
+
 1. Install dependencies:
-   ```bash
-   npm install
+
+```bash
+npm install
