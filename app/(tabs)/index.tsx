@@ -1,6 +1,6 @@
+import EventCard from '@/components/EventCard';
+import events from '@/src/data/events';
 import { FlatList, StyleSheet, View } from 'react-native';
-import EventCard from '../../components/EventCard';
-import events from '../data/events';
 
 export default function HomeScreen() {
   return (
@@ -16,8 +16,5 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0f172a',
-  },
+  container: { flex: 1, backgroundColor: '#0f172a' },
 });
