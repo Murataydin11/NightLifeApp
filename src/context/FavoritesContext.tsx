@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Haptics from 'expo-haptics';
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 type EventItem = {
@@ -13,7 +14,7 @@ type EventItem = {
 type FavoritesContextType = {
   favorites: EventItem[];
   isFavorite: (id: string) => boolean;
-  toggleFavorite: (event: EventItem) => void;
+  toggleFavorite: (event: EventItem) => Promise<void>;
   loading: boolean;
   error: string | null;
 };
@@ -68,16 +69,23 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
 
   const isFavorite = (id: string) => favorites.some((e) => e.id === id);
 
-  const toggleFavorite = (event: EventItem) => {
-    setFavorites((prev) => {
-      const exists = prev.some((e) => e.id === event.id);
+  const toggleFavorite = async (event: EventItem) => {
+    try {
+      await Haptics.selectionAsync();
 
-      if (exists) {
-        return prev.filter((e) => e.id !== event.id);
-      }
+      setFavorites((prev) => {
+        const exists = prev.some((e) => e.id === event.id);
 
-      return [...prev, event];
-    });
+        if (exists) {
+          return prev.filter((e) => e.id !== event.id);
+        }
+
+        return [...prev, event];
+      });
+    } catch (err) {
+      console.log('Failed to toggle favorite:', err);
+      setError('Could not update favorites.');
+    }
   };
 
   const value = useMemo(
