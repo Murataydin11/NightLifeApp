@@ -4,25 +4,21 @@
     "slug": "nightlifeapp",
     "version": "1.0.0",
     "orientation": "portrait",
-
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "automatic",
-
     "ios": {
       "supportsTablet": true
     },
-
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#0f172a"
-      }
+      },
+      "package": "com.murataydin11.nightlifeapp"
     },
-
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
-
     "plugins": [
       "expo-router",
       [
@@ -33,6 +29,13 @@
           "backgroundColor": "#0f172a"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5f19a82b-b922-4d2a-934a-bf484583cb0b"
+      }
+    },
+    "owner": "murataydin11"
   }
 }
